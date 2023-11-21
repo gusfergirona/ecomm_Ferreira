@@ -6,10 +6,16 @@ import './App.css';
 
 function App() {
   return (
-    <div>
-      <Navbar className="navbar navbar-expand-lg navbar-light bg-success" />
-      <ItemListContainer message="Bienvenido a MóvilArte: Tu tienda de accesorios para dispositivos móviles" className="container mt-5 text-success" />
-    </div>
+    <Router>
+      <div>
+        <NavBar className="navbar navbar-expand-lg navbar-light bg-success" />
+        <Switch>
+          <Route path="/" exact component={ItemListContainer} />
+          <Route path="/category/:id" component={ItemListContainer} />
+          <Route path="/item/:id" component={ItemDetailContainer} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
